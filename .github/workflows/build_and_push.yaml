@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: './Store'
+        working-directory: './sogo'
     steps:
       - name: 'Checkout GitHub Action'
         uses: actions/checkout@main
@@ -25,5 +25,5 @@ jobs:
 
       - name: 'Build Inventory Image'
         run: |
-          docker build sogo/ --tag ghcr.io/${GITHUB_OWNER}/sogo:latest
+          docker build . --tag ghcr.io/${GITHUB_OWNER}/sogo:latest
           docker push ghcr.io/${GITHUB_OWNER}/sogo:latest
