@@ -25,5 +25,5 @@ jobs:
 
       - name: 'Build Inventory Image'
         run: |
-          docker build . --tag ghcr.io/${GITHUB_OWNER}/sogo:latest
-          docker push ghcr.io/${GITHUB_OWNER}/sogo:latest
+          docker build . --tag ghcr.io/${GITHUB_REPOSITORY_OWNER}/sogo:latest
+          docker push ghcr.io/${GITHUB_REPOSITORY_OWNER}/sogo:latest
