@@ -1,5 +1,20 @@
 FROM debian:bookworm-slim
 
+ARG BUILD_NUMBER=0
+ARG REPOSITORY=sogo
+ARG VCS_REF
+ARG BUILD_DATE
+
+LABEL maintainer="Mithrandir1 <https://github.com/mithrandir1>" \
+      version="5.9.0-${BUILD_NUMBER}" \
+      description="SOGo is a groupware server with a focus on scalability and open standards." \
+      name=${REPOSITORY} \
+      release=${BUILD_NUMBER} \
+      build-date=${BUILD_DATE} \
+      vcs-ref=${VCS_REF}
+
+ENV TZ=Europe/Vienna
+
 ARG DEBIAN_FRONTEND=noninteractive
 ARG SOGO_DEBIAN_REPOSITORY=http://packages.sogo.nu/nightly/5/debian/
 ENV LC_ALL C
