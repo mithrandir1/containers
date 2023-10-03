@@ -28,12 +28,13 @@ jobs:
         run: |
           export BUILD_DATE=$(date "+%4Y-%m-%d %H:%M:%S")
           export TIMESTAMP=$(date "+%4Y%m%d%H%M%S")
-          docker build . \
+          docker build \
             --tag ghcr.io/${GITHUB_REPOSITORY_OWNER}/sogo:latest \
             --build-arg BUILD_NUMBER='${GITHUB_RUN_NUMBER}' \
             --build-arg TAG='sogo' \
             --build-arg VCS_REF='${GITHUB_SHA}' \
-            --build-arg BUILD_DATE=${BUILD_DATE}
+            --build-arg BUILD_DATE="${BUILD_DATE}" \
+            .
           docker tag ghcr.io/${GITHUB_REPOSITORY_OWNER}/sogo:latest \
             ghcr.io/${GITHUB_REPOSITORY_OWNER}/sogo:${TIMESTAMP}
           docker push ghcr.io/${GITHUB_REPOSITORY_OWNER}/sogo:${TIMESTAMP}
